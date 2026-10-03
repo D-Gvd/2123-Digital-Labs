@@ -1,0 +1,112 @@
+.nav {
+  position: fixed;
+  top: env(safe-area-inset-top, 0px);
+  left: 0; right: 0;
+  z-index: 100;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(8, 13, 26, 0);
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+}
+.nav.scrolled {
+  background: rgba(8, 13, 26, 0.82);
+  border-color: var(--border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.logo {
+  font-family: var(--font-jakarta), sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-decoration: none;
+}
+.logo span { color: var(--cobalt); }
+
+.links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+.links a {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.links a:hover { color: var(--text); }
+
+.cta {
+  background: var(--cobalt);
+  color: #fff;
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.55rem 1.35rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta:hover { background: var(--cobalt-light); transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--muted);
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.hamburger:hover span { background: var(--text); }
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0; right: 0;
+  background: rgba(8, 13, 26, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem) 2rem;
+  z-index: 99;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.mobileMenu.open { display: flex; }
+.mobileMenu a {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mobileMenu a:hover { color: var(--text); }
+.mobileMenuCta {
+  margin-top: 0.5rem;
+  align-self: flex-start;
+}
+
+@media (max-width: 600px) {
+  .links { display: none; }
+  .cta { display: none; }
+  .hamburger { display: flex; }
+}

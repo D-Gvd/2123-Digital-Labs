@@ -1,0 +1,97 @@
+.section {
+  background: var(--surface);
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0;
+}
+
+.intro {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 420px;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.card {
+  background: var(--surface);
+  padding: 2.5rem 2rem;
+  transition: background 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover { background: var(--surface2); }
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cobalt), var(--glow));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.card:hover::after { transform: scaleX(1); }
+
+.icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: rgba(61, 107, 248, 0.1);
+  border: 1px solid rgba(61, 107, 248, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.card h3 {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; border-radius: 12px; }
+  .header { flex-direction: column; align-items: flex-start; }
+}

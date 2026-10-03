@@ -1,0 +1,108 @@
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+  padding: clamp(2.5rem, 4vw, 4rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+/* ── Orbital visual ── */
+.visual {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  max-width: 460px;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  animation: spinSlow 18s linear infinite;
+}
+.ring:nth-child(2) {
+  inset: 12%;
+  border-color: rgba(61, 107, 248, 0.25);
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+.ring:nth-child(3) {
+  inset: 24%;
+  border-color: rgba(96, 200, 255, 0.15);
+  animation-duration: 8s;
+}
+
+@keyframes spinSlow { to { transform: rotate(360deg); } }
+
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.centerValue {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, var(--cobalt-light), var(--glow));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.centerSub { font-size: 0.8rem; color: var(--muted); }
+
+/* ── Content ── */
+.heading {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+
+.intro {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 520px;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+
+.list { list-style: none; display: flex; flex-direction: column; gap: 1.75rem; }
+
+.item { display: flex; gap: 1.25rem; align-items: flex-start; }
+
+.check {
+  flex-shrink: 0;
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(61, 107, 248, 0.1);
+  border: 1px solid rgba(61, 107, 248, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-size: 0.9rem;
+}
+
+.item h4 {
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.item p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; font-weight: 300; }
+
+@media (max-width: 900px) {
+  .section { grid-template-columns: 1fr; gap: 3rem; }
+  .visual { max-width: 280px; margin: 0 auto; }
+}

@@ -1,0 +1,87 @@
+/* ─── Design tokens ─────────────────────────────────────────── */
+:root {
+  --bg:           #080D1A;
+  --surface:      #0F1628;
+  --surface2:     #151D35;
+  --cobalt:       #3D6BF8;
+  --cobalt-light: #6089FF;
+  --glow:         #60C8FF;
+  --text:         #EEF2FF;
+  --muted:        #7B8DB0;
+  --border:       rgba(61, 107, 248, 0.15);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(68px + env(safe-area-inset-top, 0px));
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Shared section label ───────────────────────────────────── */
+.sectionLabel {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--cobalt-light);
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ─── Shared buttons ─────────────────────────────────────────── */
+.btnPrimary {
+  background: var(--cobalt);
+  color: #fff;
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 0.975rem;
+  font-weight: 600;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.btnPrimary:hover {
+  background: var(--cobalt-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(61, 107, 248, 0.35);
+}
+
+.btnGhost {
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-jakarta), sans-serif;
+  font-size: 0.975rem;
+  font-weight: 500;
+  padding: 0.85rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  display: inline-block;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btnGhost:hover {
+  color: var(--text);
+  border-color: rgba(61, 107, 248, 0.45);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
